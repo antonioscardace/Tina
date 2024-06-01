@@ -1,2 +1,75 @@
-# Tina
-Model for Identification of Alzheimer's Disease by Brain MRI.
+# Tina • Alzheimer's Detection via Brain MRI
+
+_Project for "Machine Learning" course_<br/>
+_[Antonio Scardace](https://linktr.ee/antonioscardace)_ @ _Dept of Math and Computer Science, University of Catania_
+
+[![CodeFactor](https://www.codefactor.io/repository/github/antonioscardace/Tina/badge/main)](https://www.codefactor.io/repository/github/antonioscardace/Tina/overview/main)
+[![License](https://img.shields.io/github/license/antonioscardace/tina.svg)](https://github.com/antonioscardace/Tina/blob/master/LICENSE)
+[![credits](https://img.shields.io/badge/credits-here-yellow?style=flat&link=/docs/credits.txt)](/docs/credits.txt)
+
+## Introduction
+
+This project was developed as part of the Machine Learning course examination. It focuses on medical imaging, specifically analysing a large number of brain MRIs aimed at proficiently classifying and identifying abnormalities indicative of or ruling out the presence of Alzheimer's disease (AD).
+
+Using the **ADNI** dataset sourced from the [University of South Carolina](https://ida.loni.usc.edu/login.jsp), I selected **2074 MRIs** for analysis. The goal is to classify brain MRIs into **2 different diagnostic categories**: 
+* Cognitively Normal `CN` **(65.05%)**
+* Alzheimer's Disease `AD` **(34.95%)**
+
+<p align="center">
+   <img src="docs/images/example.png" width="550px"/>
+</p>
+
+The dataset was partitioned into a **Training Set (60%)**, a **Validation Set (20%)** and a **Test Set (20%)**. Using a specialized **3D DenseNet** model, the project focused on binary classification of brain MRI scans. As a result, the model achieved a **final F1-Score** of **86.09%** and an **Accuracy-Score** of **89.87%** on the Test Set.
+
+<p align="center">
+   <img src="reports/confusion-matrix.png" width="340px"/>
+</p>
+
+## Data Preparation
+
+After obtaining the dataset [access](https://adni.loni.usc.edu/data-samples/access-data/), a collection of **T1-weighted** brain MRIs for **AD** and **CN** diagnoses was created, and the corresponding CSV file was downloaded and placed in `/data/raw/collection.csv`. The [dataset-prep](/notebooks/01-dataset-prep.ipynb) notebook was used to structure the data and limit two MRIs per patient at most. The resultant image IDs were used to create a new collection on [USC IDA](https://ida.loni.usc.edu/login.jsp), and `.zip` files were downloaded to the `/data/images/` directory. [Custom bash scripts](/data/images/) were then used to extract and organise the MRIs.
+
+Each MRI undergoes preprocessing, resulting in a normalized, skull-stripped, and corrected brain MRI. After the images were extracted and organised, a preprocessing script was used to complete the following steps for each image, taking approximately 2 minutes per image:
+
+| Step                    | Script                       | Software (Algorithm)                                         |
+| ----------------------- | ---------------------------- | ------------------------------------------------------------ |
+| Bias-Field Correction   | `N4BiasFieldCorrection`      | [ANTs](https://github.com/ANTsX/ANTs) (N4)                   |
+| Affine Registration     | `antsRegistrationSyNQuick.sh`| [ANTs](https://github.com/ANTsX/ANTs) (SyN)                  |
+| Skull Stripping         | `hd-bet`                     | [HD-BET](https://github.com/MIC-DKFZ/HD-BET) (HD-BET)        |
+| Intensity Normalization | `ws-normalize`               | [intensity-normalization](https://github.com/jcreinhold/intensity-normalization) (WhiteStrip) |
+
+## Inference Demo
+
+<p align="center">
+   <img src="docs/images/inference-ad-select.png" width="580px"/>
+   <img src="docs/images/inference-ad.png" width="580px"/>
+</p>
+
+## How to Use
+
+Before you begin, ensure that you meet the following prerequisites:
+
+* Sufficient GPU, CPU, and RAM for computational tasks.
+* At least 80GB of free disk space.
+* A Unix-based operating system.
+* Installation of three toolkits: [ANTs](https://github.com/ANTsX/ANTs), [HD-BET](https://github.com/MIC-DKFZ/HD-BET), and [Intensity Normalization](https://github.com/jcreinhold/intensity-normalization).
+
+If you meet these requirements, run the following commands:
+
+```sh
+   $ git clone https://github.com/antonioscardace/Tina.git
+   $ cd Tina/
+   $ pip install -r requirements.txt
+```
+
+To prepare the images for training as described above, run the following commands:
+
+```sh
+   $ bash data/images/00-extract.sh
+   $ bash data/images/01-organise.sh
+   $ bash data/images/02-transform.sh
+   $ bash data/images/03-preproc.sh
+```
+
+You're all set! I recommend conducting manual quality control on preprocessed images.<br/>
+Following this, you can work with the project using any [available notebook](/notebooks/).
