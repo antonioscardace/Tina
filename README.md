@@ -22,8 +22,7 @@ Using the **ADNI** dataset sourced from the [University of South Carolina](https
 The dataset was partitioned into a **Training Set (60%)**, a **Validation Set (20%)** and a **Test Set (20%)**. Using a specialized **3D DenseNet** model, the project focused on binary classification of brain MRI scans. As a result, the model achieved a final **F1-Score** of **86.09%**, a **Precision** of **85.52%**, a **Recall** of **86.66%**, an **AUC of the ROC** curve of **89.97%**, and an **Accuracy** of **89.87%** on the Test Set.
 
 <p align="center">
-   <img src="reports/confusion-matrix.png" width="340px"/><br/><br/>
-   <img src="reports/auc-roc.png" width="340px"/>
+   <img src="reports/confusion-matrix.png" width="340px"/>
 </p>
 
 ## Data Preparation
@@ -42,8 +41,8 @@ Each MRI undergoes preprocessing, resulting in a normalized, skull-stripped, and
 ## Inference Demo
 
 <p align="center">
-   <img src="docs/images/inference-ad-select.png" width="580px"/>
-   <img src="docs/images/inference-ad.png" width="580px"/>
+   <img src="docs/images/inference-ad-select.png" width="530px"/>
+   <img src="docs/images/inference-ad.png" width="530px"/>
 </p>
 
 ## How to Use
