@@ -1,6 +1,18 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+# Function to plot the ROC curve.
+# Takes false positive rate (FPR) and true positive rate (TPR) arrays, and figure size as inputs.
+
+def plot_roc_curve(fpr: np.ndarray, tpr: np.ndarray, figsize: tuple) -> None:
+    plt.figure(figsize=figsize)
+    plt.plot(fpr, tpr, color='darkorange', lw=2, label='ROC Curve')
+    plt.xlabel('False Positive Rate', fontsize=12)
+    plt.ylabel('True Positive Rate', fontsize=12)
+    plt.legend(loc='lower right')
+    plt.show()
+    plt.close()
+
 # Function to display a confusion matrix.
 # The x-axis represents the predicted labels, while the y-axis represents the true labels.
 
