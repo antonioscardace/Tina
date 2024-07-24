@@ -1,6 +1,7 @@
 # Tina • Alzheimer's Detection via Brain MRI
 
 _Project for "Machine Learning" course_<br/>
+_Grade: 30 with honors / 30_<br/>
 _[Antonio Scardace](https://linktr.ee/antonioscardace)_ @ _Dept of Math and Computer Science, University of Catania_
 
 [![CodeFactor](https://www.codefactor.io/repository/github/antonioscardace/Tina/badge/main)](https://www.codefactor.io/repository/github/antonioscardace/Tina/overview/main)
@@ -16,20 +17,20 @@ Using the **ADNI** dataset sourced from the [University of South Carolina](https
 * Alzheimer's Disease `AD` **(34.95%)**
 
 <p align="center">
-   <img src="docs/images/example.png" width="550px"/>
+   <img src="docs/images/example.png" width="510px"/>
 </p>
 
 The dataset was partitioned into a **Training Set (60%)**, a **Validation Set (20%)** and a **Test Set (20%)**. Using a specialized **3D DenseNet** model, the project focused on binary classification of brain MRI scans. As a result, the model achieved a final **F1-Score** of **86.09%**, a **Precision** of **85.52%**, a **Recall** of **86.66%**, an **AUC of the ROC** curve of **89.97%**, and an **Accuracy** of **89.87%** on the Test Set.
 
 <p align="center">
-   <img src="reports/confusion-matrix.png" width="340px"/>
+   <img src="reports/confusion-matrix.png" width="310px"/>
 </p>
 
 ## Data Preparation
 
-After obtaining the dataset [access](https://adni.loni.usc.edu/data-samples/access-data/), a collection of **T1-weighted** brain MRIs for **AD** and **CN** diagnoses was created, and the corresponding CSV file was downloaded and placed in `/data/raw/collection.csv`. The [dataset-prep](/notebooks/01-dataset-prep.ipynb) notebook was used to structure the data and limit two MRIs per patient at most. The resultant image IDs were used to create a new collection on [USC IDA](https://ida.loni.usc.edu/login.jsp), and `.zip` files were downloaded to the `/data/images/` directory. [Custom bash scripts](/data/images/) were then used to extract and organise the MRIs.
+This process involves several key steps. Initially, the dataset is [accessed](https://adni.loni.usc.edu/data-samples/access-data/) and prepared. Detailed instructions for these steps can be found in the [project report](/docs/report.pdf). In essence, the process includes accessing the **T1-weighted** brain MRI dataset, selecting MRIs specifically for **CN** and **AD** diagnoses, cleaning and sampling the dataset to ensure a maximum of two MRIs per patient, and organizing the dataset into the necessary directories.
 
-Each MRI undergoes preprocessing, resulting in a normalized, skull-stripped, and corrected brain MRI. After the images were extracted and organised, a preprocessing script was used to complete the following steps for each image, taking approximately 2 minutes per image:
+Each MRI undergoes preprocessing, resulting in a normalized, skull-stripped, and corrected brain MRI. After the scans were extracted and organised, a preprocessing script was used to complete the following steps for each image, taking approximately 2 minutes per image:
 
 | Step                    | Script                       | Software (Algorithm)                                         |
 | ----------------------- | ---------------------------- | ------------------------------------------------------------ |
@@ -51,8 +52,8 @@ Before you begin, ensure that you meet the following prerequisites:
 
 * Sufficient GPU, CPU, and RAM for computational tasks.
 * At least 80GB of free disk space.
-* A Unix-based operating system.
-* Installation of three toolkits: [ANTs](https://github.com/ANTsX/ANTs), [HD-BET](https://github.com/MIC-DKFZ/HD-BET), and [Intensity Normalization](https://github.com/jcreinhold/intensity-normalization).
+* Unix-based operating system.
+* Install these three toolkits: [ANTs](https://github.com/ANTsX/ANTs), [HD-BET](https://github.com/MIC-DKFZ/HD-BET), and [Intensity Normalization](https://github.com/jcreinhold/intensity-normalization).
 
 If you meet these requirements, run the following commands:
 
@@ -62,7 +63,7 @@ If you meet these requirements, run the following commands:
    $ pip install -r requirements.txt
 ```
 
-To prepare the images for training as described above, run the following commands:
+To prepare the images for training as described, run the following commands:
 
 ```sh
    $ bash data/images/00-extract.sh
