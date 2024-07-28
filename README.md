@@ -28,7 +28,7 @@ The dataset was partitioned into a **Training Set (60%)**, a **Validation Set (2
 
 ## Data Preparation
 
-To prepare the dataset for training and testing, start by [downloading](https://adni.loni.usc.edu/data-samples/access-data/) the metadata for **T1-weighted** brain MRI images from ADNI, selecting MRIs specifically for **CN** and **AD** diagnoses. Save this metadata to `/data/raw/collection.csv`. Next, filter and clean this dataset using the [dataset-prep](/notebooks/01-dataset-prep.ipynb) notebook, ensuring that no more than two MRIs per patient are selected. Extract the relevant image IDs from the cleaned dataset. With these image IDs, create a collection on the **USC IDA** platform and download the corresponding `.zip` files containing the MRI scans to the `/data/images/` directory. Once the images are downloaded, run the [bash scripts](/data/images/) to extract and organize the MRI scans. More info is available in the [project report](/docs/report.pdf).
+After obtaining the dataset [access](https://adni.loni.usc.edu/data-samples/access-data/), a CSV file of **T1-weighted** brain MRIs for **AD** and **CN** diagnoses was downloaded to `/data/raw/collection.csv`. The [dataset-prep](/notebooks/01-dataset-prep.ipynb) notebook was used to filter and clean this dataset, ensuring no more than two MRIs per patient were selected. The resultant image IDs were used to create a new collection on [USC IDA](https://ida.loni.usc.edu/login.jsp), and the corresponding `.zip` files were downloaded to the `/data/images/` directory. Then, custom [bash scripts](/data/images/) were used to extract and organize the MRI scans. More info is available in the [project report](/docs/report.pdf).
 
 Each MRI undergoes preprocessing, resulting in a normalized, skull-stripped, and corrected brain MRI. After the scans were extracted and organised, a preprocessing script was used to complete the following steps for each image, taking approximately 2 minutes per image:
 
@@ -63,7 +63,7 @@ If you meet these requirements, run the following commands:
    $ pip install -r requirements.txt
 ```
 
-If you don’t have the scans, follow the instructions above and run these commands:
+Once you’ve followed the instructions above and obtained the zip files, run these commands:
 
 ```sh
    $ bash data/images/00-extract.sh
