@@ -28,7 +28,8 @@ The dataset was partitioned into a **Training Set (60%)**, a **Validation Set (2
 
 ## Data Preparation
 
-After obtaining the dataset [access](https://adni.loni.usc.edu/data-samples/access-data/), a CSV file of **T1-weighted** brain MRIs for **AD** and **CN** diagnoses was downloaded to `/data/raw/collection.csv`. The [dataset-prep](/notebooks/01-dataset-prep.ipynb) notebook was used to filter and clean this dataset, ensuring no more than two MRIs per patient were selected. The resultant image IDs were used to create a new collection on [USC IDA](https://ida.loni.usc.edu/login.jsp), and the corresponding `.zip` files were downloaded to the `/data/images/` directory. Then, custom [bash scripts](/data/images/) were used to extract and organize the MRI scans. More info is available in the [project report](/docs/report.pdf).
+After obtaining the dataset [access](https://adni.loni.usc.edu/data-samples/access-data/), a CSV file of **T1-weighted** brain MRIs for **AD** and **CN** diagnoses was downloaded to `/data/raw/collection.csv`. The [dataset-prep](/notebooks/01-dataset-prep.ipynb) notebook was used to filter and clean this dataset, ensuring no more than two MRIs per patient were selected. The resultant image IDs were used to create a new collection on [USC IDA](https://ida.loni.usc.edu/login.jsp), and the corresponding `.zip` files were downloaded to the `/data/images/` directory.<br/>
+Once the images were downloaded, custom bash scripts were used to extract and organize the MRI scans before preprocessing. More info is available in the [project report](/docs/report.pdf).
 
 Each MRI undergoes preprocessing, resulting in a normalized, skull-stripped, and corrected brain MRI. After the scans were extracted and organised, a preprocessing script was used to complete the following steps for each image, taking approximately 2 minutes per image:
 
