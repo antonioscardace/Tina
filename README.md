@@ -28,7 +28,7 @@ The dataset was partitioned into a **Training Set (60%)**, a **Validation Set (2
 
 ## Data Preparation
 
-This process involves several key steps. Initially, the dataset is [accessed](https://adni.loni.usc.edu/data-samples/access-data/) and prepared. Detailed instructions for these steps can be found in the [project report](/docs/report.pdf). In essence, the process includes accessing the **T1-weighted** brain MRI dataset, selecting MRIs specifically for **CN** and **AD** diagnoses, cleaning and sampling the dataset to ensure a maximum of two MRIs per patient, and organizing the dataset into the necessary directories.
+To prepare the dataset for training and testing, start by [downloading](https://adni.loni.usc.edu/data-samples/access-data/) the metadata for **T1-weighted** brain MRI images from ADNI, selecting MRIs specifically for **CN** and **AD** diagnoses. Save this metadata to `/data/raw/collection.csv`. Next, filter and clean this dataset using the [dataset-prep](/notebooks/01-dataset-prep.ipynb) notebook, ensuring that no more than two MRIs per patient are selected. Extract the relevant image IDs from the cleaned dataset. With these image IDs, create a collection on the **USC IDA** platform and download the corresponding `.zip` files containing the MRI scans to the `/data/images/` directory. Once the images are downloaded, run the [bash scripts](/data/images/) to extract and organize the MRI scans. More info is available in the [project report](/docs/report.pdf).
 
 Each MRI undergoes preprocessing, resulting in a normalized, skull-stripped, and corrected brain MRI. After the scans were extracted and organised, a preprocessing script was used to complete the following steps for each image, taking approximately 2 minutes per image:
 
@@ -63,7 +63,7 @@ If you meet these requirements, run the following commands:
    $ pip install -r requirements.txt
 ```
 
-To prepare the images for training as described, run the following commands:
+If you don’t have the scans, follow the instructions above and run these commands:
 
 ```sh
    $ bash data/images/00-extract.sh
@@ -73,4 +73,4 @@ To prepare the images for training as described, run the following commands:
 ```
 
 You're all set! I recommend conducting manual quality control on preprocessed images.<br/>
-Following this, you can work with the project using any [available notebook](/notebooks/).
+Following this, you can work on the project using any [available notebook](/notebooks/).
