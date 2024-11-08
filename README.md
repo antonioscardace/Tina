@@ -12,7 +12,7 @@ _[Antonio Scardace](https://linktr.ee/antonioscardace)_ @ _Dept of Math and Comp
 
 This project was developed as part of the Machine Learning course examination. It focuses on medical imaging, specifically analysing a large number of brain MRIs aimed at proficiently classifying and identifying abnormalities indicative of or ruling out the presence of Alzheimer's disease (AD).
 
-Using the **ADNI** dataset sourced from the [University of South Carolina](https://ida.loni.usc.edu/login.jsp), I selected **2863 MRIs** for analysis. The goal is to classify brain MRIs into **2 different diagnostic categories**: 
+Using the **ADNI** dataset sourced from the [University of South Carolina](https://ida.loni.usc.edu/login.jsp), I selected **2074 MRIs** for analysis. The goal is to classify brain MRIs into **2 different diagnostic categories**: 
 * Cognitively Normal `CN` **(65.05%)**
 * Alzheimer's Disease `AD` **(34.95%)**
 
