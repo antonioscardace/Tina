@@ -1,4 +1,4 @@
-# Tina • Alzheimer's Detection via Brain MRI
+# Tina • MRI Diagnostics for Alzheimer’s
 
 _Project for "Machine Learning" course_<br/>
 _Grade: 30 with honors / 30_<br/>
@@ -28,9 +28,9 @@ The dataset was partitioned into a **Training Set (60%)**, a **Validation Set (2
 
 ## Data Preparation
 
-After obtaining the dataset [access](https://adni.loni.usc.edu/data-samples/access-data/), a CSV file of **T1-weighted** brain MRIs for **AD** and **CN** diagnoses was downloaded to `/data/raw/collection.csv`. The dataset was filtered and cleaned, ensuring no more than two MRIs per patient were selected, and the corresponding `.zip` files were downloaded to the `/data/images/` directory. Once the images were downloaded, custom bash scripts were used to extract, organize, and preprocess the MRI scans before preprocessing. More info is available in the [project report](/docs/report.pdf).
+After obtaining the dataset [access](https://adni.loni.usc.edu/data-samples/access-data/), a CSV file of **T1-weighted** brain MRIs for **AD** and **CN** diagnoses was downloaded to `/data/raw/collection.csv`. The dataset was filtered and cleaned, ensuring no more than two MRIs per patient were selected, and the corresponding `.zip` files were downloaded to the `/data/images/` directory. Once the images were downloaded, custom bash scripts were used to extract and organize the MRI scans before preprocessing. More info is available in the [project report](/docs/report.pdf).
 
-Each MRI undergoes preprocessing, resulting in a normalized, skull-stripped, and corrected brain MRI. After the scans were extracted and organised, a preprocessing script was used to complete the following steps for each image, taking approximately 2 minutes per image:
+Each MRI undergoes preprocessing, resulting in a normalized, skull-stripped, and corrected brain MRI. After the scans were extracted and organised, a preprocessing script was used to complete the following steps for each image, taking approximately 2 minutes per scan:
 
 | Step                    | Script                       | Software (Algorithm)                                         |
 | ----------------------- | ---------------------------- | ------------------------------------------------------------ |
