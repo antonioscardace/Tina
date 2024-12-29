@@ -1,14 +1,9 @@
-# Tina • MRI Diagnostics for Alzheimer’s
-
-_Project for "Machine Learning" course_<br/>
-_Grade: 30 with honors / 30_<br/>
-_[Antonio Scardace](https://linktr.ee/antonioscardace)_ @ _Dept of Mathematics and Computer Science, University of Catania_
+# Tina • Alzheimer’s Detection Through MRI
 
 [![CodeFactor](https://www.codefactor.io/repository/github/antonioscardace/Tina/badge/main)](https://www.codefactor.io/repository/github/antonioscardace/Tina/overview/main)
 [![License](https://img.shields.io/github/license/antonioscardace/tina.svg)](https://github.com/antonioscardace/Tina/blob/master/LICENSE)
+[![Open Issues](https://img.shields.io/github/issues/antonioscardace/tina.svg)](https://github.com/antonioscardace/Tina/issues)
 [![credits](https://img.shields.io/badge/credits-here-yellow?style=flat&link=/docs/credits.txt)](/docs/credits.txt)
-
-## Introduction
 
 This project was developed as part of the Machine Learning course examination. It focuses on medical imaging, specifically analysing a large number of brain MRIs aimed at proficiently classifying and identifying abnormalities indicative of or ruling out the presence of Alzheimer's disease (AD).
 
@@ -17,7 +12,7 @@ Using the **ADNI** dataset sourced from the [University of South Carolina](https
 * Alzheimer's Disease `AD` **(34.95%)**
 
 <p align="center">
-   <img src="docs/images/example.png" width="510px"/>
+   <img src="docs/images/example.png" width="500px"/>
 </p>
 
 The dataset was partitioned into a **Training Set (60%)**, a **Validation Set (20%)** and a **Test Set (20%)**. Using a specialized **3D DenseNet** model, the project focused on binary classification of brain MRI scans. As a result, the model achieved a final **F1-Score** of **84.39%**, a **Precision** of **82.63%**, a **Recall** of **86.23%**, an **AUC of the ROC** curve of **88.60%**, and an **Accuracy** of **89.39%** on the Test Set.
