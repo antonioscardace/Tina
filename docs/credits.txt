@@ -1,0 +1,11 @@
+[1] Tustison, Nicholas J et al. “The ANTsX ecosystem for quantitative biological and medical imaging.” Scientific reports vol. 11,1 9068. 27 Apr. 2021, doi:10.1038/s41598-021-87564-6
+[2] Reinhold, Jacob C., et al. "Evaluating the impact of intensity normalization on MR image synthesis." Medical Imaging 2019: Image Processing. Vol. 10949. SPIE, 2019.
+[3] Isensee F, Schell M, Pflueger I, et al. Automated brain extraction of multisequence MRI using artificial neural networks. Hum Brain Mapp. 2019; 40: 4952–4964. https://doi.org/10.1002/hbm.24750
+[4] https://github.com/LemuelPuglisi/turboprep
+
+Data used in the preparation of this article were obtained from the Alzheimer’s Disease Neuroimaging
+Initiative (ADNI) database (adni.loni.usc.edu). The ADNI was launched in 2003 as a public-private
+partnership, led by Principal Investigator Michael W. Weiner, MD. The primary goal of ADNI has been to
+test whether serial magnetic resonance imaging (MRI), positron emission tomography (PET), other
+biological markers, and clinical and neuropsychological assessment can be combined to measure the
+progression of mild cognitive impairment (MCI) and early Alzheimer’s disease (AD).
