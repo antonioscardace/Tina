@@ -1,0 +1,15 @@
+*.pth filter=lfs diff=lfs merge=lfs -text
+*.nii filter=lfs diff=lfs merge=lfs -text
+*.nii.gz filter=lfs diff=lfs merge=lfs -text
+
+*.md text eol=lf
+*.py text eol=lf
+*.ipynb text eol=lf
+*.csv text eol=lf
+
+*.ipynb filter=nbstripout
+*.ipynb diff=ipynb
+
+*.png binary
+*.nii binary
+*.nii.gz binary
